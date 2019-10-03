@@ -563,6 +563,7 @@ class ChatBot extends Component {
           speak={this.speak}
           previousValue={previousStep.value}
           triggerNextStep={this.triggerNextStep}
+          emulateSubmitUserMessage={this.emulateSubmitUserMessage}
           bubbleOptionStyle={bubbleOptionStyle}
         />
       );
@@ -584,6 +585,7 @@ class ChatBot extends Component {
         speechSynthesis={speechSynthesis}
         isFirst={this.isFirstPosition(step)}
         isLast={this.isLastPosition(step)}
+        emulateSubmitUserMessage={this.emulateSubmitUserMessage}
       />
     );
   };
