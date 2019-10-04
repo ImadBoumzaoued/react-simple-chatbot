@@ -40,23 +40,9 @@ class CustomStep extends Component {
 
   render() {
     const { loading } = this.state;
-    const { style, step, avatarStyle, hideBotAvatar, hideUserAvatar, hideAvatar } = this.props;
-    const { avatar, user } = step;
-    const showAvatar = !hideBotAvatar && !hideAvatar;
+    const { style } = this.props;
     return (
       <CustomStepContainer className="rsc-cs" style={style}>
-        <ImageContainer className="rsc-ts-image-container" user={user}>
-          {showAvatar && (
-            <Image
-              className="rsc-ts-image"
-              style={avatarStyle}
-              showAvatar={showAvatar}
-              user={user}
-              src={avatar}
-              alt="avatar"
-            />
-          )}
-        </ImageContainer>
         {loading ? <Loading /> : this.renderComponent()}
       </CustomStepContainer>
     );
