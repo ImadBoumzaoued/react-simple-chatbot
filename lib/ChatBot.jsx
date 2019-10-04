@@ -73,7 +73,7 @@ class ChatBot extends Component {
 
     const defaultBotSettings = { delay: botDelay, avatar: botAvatar };
     const defaultUserSettings = { delay: userDelay, avatar: userAvatar, hideInput: false };
-    const defaultCustomSettings = { delay: customDelay, avatar: userAvatar };
+    const defaultCustomSettings = { delay: customDelay };
 
     for (let i = 0, len = steps.length; i < len; i += 1) {
       const step = steps[i];
@@ -446,11 +446,11 @@ class ChatBot extends Component {
     if (!isInvalid) {
       const step = {
         message: inputValue,
-        value: inputValue
+        value: inputValue,
+        user: true
       };
-
-      currentStep = Object.assign({}, defaultUserSettings, currentStep, step);
-
+      currentStep = Object.assign({}, currentStep, defaultUserSettings, step);
+      delete currentStep.component;
       renderedSteps.push(currentStep);
       previousSteps.push(currentStep);
 
